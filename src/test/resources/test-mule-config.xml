@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:dynamicform="http://www.mulesoft.org/schema/mule/dynamicform"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/dynamicform http://www.mulesoft.org/schema/mule/dynamicform/current/mule-dynamicform.xsd">
+
+    <dynamicform:config name="config" configId="configId">
+        <dynamicform:connection requiredParameter="aValue" />
+    </dynamicform:config>
+
+    <flow name="sayHiFlow">
+        <dynamicform:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <dynamicform:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
